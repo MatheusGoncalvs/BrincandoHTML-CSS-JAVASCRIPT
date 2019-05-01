@@ -1,6 +1,8 @@
 //Front-End Web Development Quick Start With HTML5, CSS, and JavaScript
 //JavaScript module
 
+$(document).ready(function(){//Garante que o doc html foi carregado antes de rodar o javascript:(Erro na manipulação do DOM)
+
 "use strict"; //Essa string define regras para um uso mais estrito do código javascript. Faz com que não se possa utilizar, por exemplo, uma variável sem informar o "var".
 
 var msg = "Hello JavaScript";
@@ -86,3 +88,20 @@ results.push(result);//adicionando item a tabela
 console.log(results.length);
 console.log(results[0].name);
 
+//Modulo de JQuery
+//Manipulando via DOM jQuery
+var resultList = $("#resultList");//essa declaração pode ser assim: jQuery("#resultList"); ou assim: $("#resultList");
+resultList.text("This is from JQuery");
+
+//Ação javascript que faz desaparecer and aparecer..
+var toggleButton = $("#toggleButton");
+toggleButton.on("click", function () {
+    resultList.toggle(500);
+
+    //
+    if(toggleButton.text() == "Hide")
+        toggleButton.text("Show");
+    else
+        toggleButton.text("Hide");
+});
+});

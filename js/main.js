@@ -54,7 +54,7 @@ var result = {
 
     },
     owner: {
-        login: "matheus",
+        login: "Matheus",
         senha: 123456
     }
 };
@@ -69,7 +69,7 @@ var results = [
     
         },
         owner: {
-            login: "matheus",
+            login: "Shawn Mendes",
             senha: 123456
         }
     }, {
@@ -116,4 +116,31 @@ listItens.css("font-family", "arial");
 
 //Como definir uma cor diferente para o primeiro item da lista?
 listItens.filter(":first").css("color", "aqua");
+
+//Pegar uma coleção de objetos e manipula-los(Aqui utilizamos os seu atribudos numa lista rodando num loop)
+resultList.empty();//Limpa a lista para utilizá-la
+$.each(results, function(i, item){//O for do jQuery(cada resultado da lista passa por item)
+
+    var newResult = $("<div class='result'>" + //Para poder adicionar uma função hover nessa lista, tive que transformá-la num objeto jQuery($(elemento para ser um objeto jQuery))
+    "<div class='title'>" + item.name + "</div>" +
+    "<div>Score: " + item.score + "</div>" +
+    "<div>Owner: " + item.owner.login + "</div>"+
+    "</div>");
+
+    //Função jQuery que ao passar o mouse a cor da lista alterna entre cinza-claro e transparente.
+    newResult.hover(function () {
+        //make it darker
+        $(this).css("background-color", "lightgray");
+    }, function () {
+        //reverse
+        $(this).css("background-color", "transparent");
+    });
+
+resultList.append(newResult);
+});
+
+//JSON(JavaScript Object Notation)
+
+var gitHubSearch = "https://api.github.com/search/repositories?q=" + encodeURIComponent(searchPhrase);
+
 });

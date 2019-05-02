@@ -3,3 +3,7 @@ header nav li{
     font-size: 16px;
     text-decoration: none;
 }
+.result {
+    margin: 5px;
+    border: 1px solid #333;
+}

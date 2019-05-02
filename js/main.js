@@ -104,4 +104,16 @@ toggleButton.on("click", function () {
     else
         toggleButton.text("Hide");
 });
+
+//Manipulando o DOM dessa forma afetará todos os itens envolvidos
+//$("header nav li").text("Testing jQuery.."); //var getList = $("header nav li") *Pode ser utilizada para receber uma collection desses intens
+
+//$("header nav li").css("font-weight", "bold");
+
+var listItens = $("header nav li");
+listItens.css("font-weight", "bold");
+listItens.css("font-family", "arial");
+
+//Como definir uma cor diferente para o primeiro item da lista?
+listItens.filter(":first").css("color", "aqua");
 });

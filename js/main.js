@@ -142,7 +142,7 @@ $(document).ready(function () {//Garante que o doc html foi carregado antes de r
     //JSON(JavaScript Object Notation)
     //Como obter dados de uma api JSON
     var gitHubSearch = "https://api.github.com/search/repositories?q=jquery+language:javascript&sort=stars";
-
+    /* essa pesquisa está aparecendo os dados automaticamente comentei para usar clicando no botão de busca abaixo.
     $.get(gitHubSearch)
         //jQuery promise have been deprecated.*
         .then(function (r) {
@@ -157,7 +157,7 @@ $(document).ready(function () {//Garante que o doc html foi carregado antes de r
     })
     .done(function(){
         //
-    })*/;
+    });*/
 
     function displayResults(results) {
         //Cópia de cima. Agora vai pegar os dados de uma api retornando JSON
@@ -181,4 +181,38 @@ $(document).ready(function () {//Garante que o doc html foi carregado antes de r
             resultList.append(newResult);
         });
     }
+    //
+    $("#gitHubSearchForm").on("submit", function () {
+
+        var searchPhrase = $("#searchPhrase").val();//pega o dado digitado no input
+        var useStars = $("#useStars").val();
+        var languageChoice = $("#languageChoice").val();
+
+        var gitHubSearch = "https://api.github.com/search/repositories?q=" + encodeURIComponent(searchPhrase);
+
+        if(languageChoice != "All"){
+            //O encodeURIComponent faz com que os caracteres especiais sejam entendidos pelo navegador
+            gitHubSearch += "+language:" + encodeURIComponent(languageChoice);
+        }
+
+        if(useStars){
+            gitHubSearch += "&sort=stars";
+        }
+
+        if (searchPhrase) {
+
+            resultList.text("Search performing...");
+
+
+            $.get(gitHubSearch)
+                .then(function (r) {
+                    displayResults(r.items);
+                }, function errorCallBack(response) {
+                    // called asynchronously if an error occurs,
+                    // or server returns response with an error status.
+                });
+        }
+        return false;//Impede que o formulário envie a action
+    })
+
 });

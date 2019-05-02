@@ -21,8 +21,26 @@
             <h1>Site web site</h1>
         </div>
         <div id="informaNome">
-
         </div>
+        <form action="" method="POST" id="gitHubSearchForm">
+            <label for="searchPhrase">Search Phrase:</label>
+            <input type="text" name="searchPhrase" id="searchPhrase"/>
+            </br>
+            <input type="checkbox" name="useStars" id="useStars" checked="true" />
+            <label for="useStars">Use Stars?</label>
+            </br>
+            <label for="languageChoice">Language:</label>
+            <select name="languageChoice" id="languageChoice">
+                <option>All</option>
+                <option>JavaScript</option>
+                <option selected>C#</option>
+                <option>Java</option>
+                <option>Ruby</option>
+            </select>
+            </br>
+            <input type="submit" value="search" />
+            </br>
+        </form>
         <div id="results">
             <button id="toggleButton">Hide</button>
             <div id="resultList">This is where results will go</div>

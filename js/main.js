@@ -8,7 +8,7 @@ $(document).ready(function () {//Garante que o doc html foi carregado antes de r
     var msg = "Hello JavaScript";
     console.log(msg);
 
-    var informaNomeDiv = document.getElementById("informaNome");//Manipulação via DOM
+    var informaNomeDiv = document.getElementById("informaNome");//Manipulação do DOM com JS
     informaNomeDiv.innerHTML = "<p>This is from JavaScript</p>";
 
     console.log("msg is " + typeof (msg)); //exemplo do uso do typeof:Ele "diz" qual o tipo da variável
@@ -59,6 +59,8 @@ $(document).ready(function () {//Garante que o doc html foi carregado antes de r
         }
     };
     result.phoneNumber = "123-154-2430"; //Atribuir uma nova propriedade ao objeto
+   
+    console.log(result);
 
     //Definindo Arrays: Com uma coleção de objetos
     var results1 = [
@@ -84,7 +86,7 @@ $(document).ready(function () {//Garante que o doc html foi carregado antes de r
             }
         }
     ];
-    results1.push(result);//adicionando item a tabela
+    results1.push(result);//adicionando item a collection
     console.log(results1.length);
     console.log(results1[0].name);
 
@@ -96,7 +98,7 @@ $(document).ready(function () {//Garante que o doc html foi carregado antes de r
     //Ação javascript que faz desaparecer and aparecer..
     var toggleButton = $("#toggleButton");
     toggleButton.on("click", function () {
-        resultList.toggle(500);
+        resultList.toggle(30);
 
         //
         if (toggleButton.text() == "Hide")
